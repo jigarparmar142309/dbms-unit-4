@@ -1,0 +1,17 @@
+SET SERVEROUTPUT ON;
+CREATE OR REPLACE PROCEDURE find_emp(eid IN NUMBER, ename OUT VARCHAR2) IS
+BEGIN
+    SELECT EName INTO ename FROM EMP WHERE EID = eid;
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        ename := 'NOT FOUND';
+END;
+/
+
+DECLARE
+    name VARCHAR2(20);
+BEGIN
+    find_emp(&eid, name);
+    DBMS_OUTPUT.PUT_LINE('Name: ' || name);
+END;
+/
