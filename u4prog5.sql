@@ -1,0 +1,16 @@
+SET SERVEROUTPUT ON;
+CREATE OR REPLACE FUNCTION get_balance(acno NUMBER) RETURN NUMBER IS
+    bal NUMBER;
+BEGIN
+    SELECT BALANCE INTO bal FROM ACCOUNT WHERE ACNO = acno;
+    RETURN bal;
+END;
+/
+
+DECLARE
+    b NUMBER;
+BEGIN
+    b := get_balance(&acno);
+    DBMS_OUTPUT.PUT_LINE('Balance: ' || b);
+END;
+/
