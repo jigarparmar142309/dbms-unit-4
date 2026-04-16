@@ -1,0 +1,14 @@
+SET SERVEROUTPUT ON;
+CREATE OR REPLACE FUNCTION cube(n NUMBER) RETURN NUMBER IS
+BEGIN
+    RETURN n*n*n;
+END;
+/
+
+DECLARE
+    res NUMBER;
+BEGIN
+    res := cube(&n);
+    DBMS_OUTPUT.PUT_LINE('Cube: ' || res);
+END;
+/
