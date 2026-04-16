@@ -1,0 +1,11 @@
+SET SERVEROUTPUT ON;
+CREATE OR REPLACE PROCEDURE msg_proc IS
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('Hello User!');
+END;
+/
+
+BEGIN
+    msg_proc;
+END;
+/
